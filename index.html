@@ -1,0 +1,595 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Bharat Computer - Premium Tech Gear</title>
+
+<style>
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+:root {
+  --primary: #FF6B35;
+  --secondary: #004E89;
+  --accent: #F7B801;
+  --dark: #0a0e27;
+  --light: #f8f9fa;
+  --gray: #6b7280;
+  --border-radius: 12px;
+}
+
+body {
+  font-family: 'Times New Roman', serif;
+  background: var(--dark);
+  color: #fff;
+  line-height: 1.6;
+  overflow-x: hidden;
+}
+
+/* ========== HERO SECTION ========== */
+.hero {
+  height: 100vh;
+  background: linear-gradient(135deg, var(--dark) 0%, #1a1f4b 50%, var(--secondary) 100%);
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  overflow: hidden;
+}
+
+/* Animated background elements */
+.hero::before {
+  content: '';
+  position: absolute;
+  top: -50%;
+  right: -50%;
+  width: 600px;
+  height: 600px;
+  background: radial-gradient(circle, rgba(255, 107, 53, 0.1) 0%, transparent 70%);
+  border-radius: 50%;
+  animation: float 20s ease-in-out infinite;
+}
+
+.hero::after {
+  content: '';
+  position: absolute;
+  bottom: -50%;
+  left: -50%;
+  width: 500px;
+  height: 500px;
+  background: radial-gradient(circle, rgba(247, 184, 1, 0.08) 0%, transparent 70%);
+  border-radius: 50%;
+  animation: float 25s ease-in-out infinite reverse;
+}
+
+@keyframes float {
+  0%, 100% { transform: translateY(0px); }
+  50% { transform: translateY(50px); }
+}
+
+.hero-content {
+  position: relative;
+  z-index: 2;
+  animation: slideUp 0.8s ease-out;
+}
+
+@keyframes slideUp {
+  from {
+    opacity: 0;
+    transform: translateY(40px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.hero h1 {
+  font-family: 'Times New Roman', serif;
+  font-size: clamp(42px, 8vw, 84px);
+  font-weight: 700;
+  margin-bottom: 20px;
+  background: linear-gradient(135deg, var(--accent), var(--primary));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  letter-spacing: -2px;
+}
+
+.hero p {
+  font-size: clamp(18px, 3vw, 28px);
+  color: #b3b9cc;
+  margin-bottom: 40px;
+  font-weight: 300;
+  max-width: 600px;
+}
+
+.cta-primary {
+  padding: 16px 48px;
+  font-size: 18px;
+  font-weight: 600;
+  background: linear-gradient(135deg, var(--primary), #ff8a5b);
+  border: none;
+  cursor: pointer;
+  border-radius: var(--border-radius);
+  color: white;
+  transition: all 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
+  box-shadow: 0 10px 40px rgba(255, 107, 53, 0.25);
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  font-family: 'Times New Roman', serif;
+  position: relative;
+  overflow: hidden;
+}
+
+.cta-primary::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(255,255,255,0.2), transparent);
+  transition: left 0.6s ease;
+}
+
+.cta-primary:hover::before {
+  left: 100%;
+}
+
+.cta-primary:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 15px 50px rgba(255, 107, 53, 0.35);
+}
+
+/* ========== PRODUCTS SECTION ========== */
+.products {
+  padding: 100px 40px;
+  background: var(--light);
+  color: var(--dark);
+}
+
+.section-header {
+  margin-bottom: 80px;
+}
+
+.section-label {
+  font-family: 'Times New Roman', serif;
+  font-size: 14px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  color: var(--primary);
+  margin-bottom: 15px;
+}
+
+.section-title {
+  font-family: 'Times New Roman', serif;
+  font-size: clamp(36px, 5vw, 56px);
+  font-weight: 700;
+  color: var(--dark);
+  line-height: 1.2;
+}
+
+.product-slider {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 30px;
+  animation: fadeInStaggered 0.8s ease-out;
+}
+
+@keyframes fadeInStaggered {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.product-slider > * {
+  animation: fadeInStaggered 0.6s ease-out;
+}
+
+.product-slider > *:nth-child(1) { animation-delay: 0.1s; }
+.product-slider > *:nth-child(2) { animation-delay: 0.2s; }
+.product-slider > *:nth-child(3) { animation-delay: 0.3s; }
+.product-slider > *:nth-child(4) { animation-delay: 0.4s; }
+.product-slider > *:nth-child(5) { animation-delay: 0.5s; }
+.product-slider > *:nth-child(6) { animation-delay: 0.6s; }
+.product-slider > *:nth-child(7) { animation-delay: 0.7s; }
+.product-slider > *:nth-child(8) { animation-delay: 0.8s; }
+
+.product {
+  background: white;
+  padding: 25px;
+  border-radius: var(--border-radius);
+  text-align: center;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
+  transition: all 0.4s cubic-bezier(0.34, 1.56, 0.64, 1);
+  border: 2px solid transparent;
+  position: relative;
+  overflow: hidden;
+}
+
+.product::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(255, 107, 53, 0.05), transparent);
+  transition: left 0.6s ease;
+}
+
+.product:hover {
+  transform: translateY(-12px);
+  box-shadow: 0 20px 50px rgba(0, 0, 0, 0.15);
+  border-color: var(--primary);
+}
+
+.product:hover::before {
+  left: 100%;
+}
+
+.product img {
+  width: 100%;
+  height: 200px;
+  object-fit: contain;
+  margin-bottom: 20px;
+  transition: transform 0.4s ease;
+  background: #f5f5f5;
+  padding: 10px;
+  border-radius: 8px;
+}
+
+.product:hover img {
+  transform: scale(1.05);
+}
+
+.product p {
+  font-size: 18px;
+  font-weight: 600;
+  color: var(--dark);
+  margin: 0;
+}
+
+.product-price {
+  font-size: 14px;
+  color: var(--gray);
+  margin-top: 8px;
+  font-style: italic;
+}
+
+/* ========== FORM SECTION ========== */
+.form-section {
+  padding: 100px 40px;
+  background: var(--dark);
+  color: white;
+}
+
+.form-container {
+  max-width: 700px;
+  margin: 0 auto;
+}
+
+.form-title {
+  font-family: 'Times New Roman', serif;
+  font-size: 42px;
+  font-weight: 700;
+  margin-bottom: 15px;
+  background: linear-gradient(135deg, var(--accent), var(--primary));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.form-description {
+  color: #b3b9cc;
+  margin-bottom: 40px;
+  font-size: 16px;
+}
+
+.form-group {
+  margin-bottom: 25px;
+}
+
+.form-group label {
+  display: block;
+  margin-bottom: 8px;
+  font-weight: 600;
+  font-size: 14px;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  color: var(--accent);
+}
+
+input, textarea {
+  width: 100%;
+  padding: 14px 16px;
+  border: 2px solid #2a2f4e;
+  background: rgba(255, 255, 255, 0.05);
+  color: white;
+  border-radius: var(--border-radius);
+  font-family: 'Times New Roman', serif;
+  font-size: 16px;
+  transition: all 0.3s ease;
+}
+
+input::placeholder, textarea::placeholder {
+  color: #8a8fa3;
+}
+
+input:focus, textarea:focus {
+  outline: none;
+  border-color: var(--primary);
+  background: rgba(255, 107, 53, 0.05);
+  box-shadow: 0 0 20px rgba(255, 107, 53, 0.1);
+}
+
+textarea {
+  resize: vertical;
+  min-height: 120px;
+}
+
+.submit-btn {
+  width: 100%;
+  padding: 16px;
+  background: linear-gradient(135deg, var(--primary), #ff8a5b);
+  color: white;
+  border: none;
+  border-radius: var(--border-radius);
+  font-size: 16px;
+  font-weight: 700;
+  cursor: pointer;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  font-family: 'Times New Roman', serif;
+  transition: all 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
+  box-shadow: 0 10px 40px rgba(255, 107, 53, 0.25);
+  position: relative;
+  overflow: hidden;
+}
+
+.submit-btn::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(255,255,255,0.2), transparent);
+  transition: left 0.6s ease;
+}
+
+.submit-btn:hover::before {
+  left: 100%;
+}
+
+.submit-btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 15px 50px rgba(255, 107, 53, 0.35);
+}
+
+.form-message {
+  margin-top: 20px;
+  padding: 14px 16px;
+  border-radius: var(--border-radius);
+  text-align: center;
+  font-weight: 600;
+  display: none;
+}
+
+.form-message.success {
+  background: rgba(34, 197, 94, 0.2);
+  border: 2px solid #22c55e;
+  color: #86efac;
+  display: block;
+}
+
+.form-message.error {
+  background: rgba(239, 68, 68, 0.2);
+  border: 2px solid #ef4444;
+  color: #fca5a5;
+  display: block;
+}
+
+/* ========== FOOTER ========== */
+footer {
+  text-align: center;
+  padding: 40px;
+  background: #0a0e27;
+  border-top: 2px solid #1a1f4b;
+  color: #8a8fa3;
+  font-size: 14px;
+}
+
+footer a {
+  color: var(--primary);
+  text-decoration: none;
+  transition: color 0.3s ease;
+}
+
+footer a:hover {
+  color: var(--accent);
+}
+
+/* ========== RESPONSIVE ========== */
+@media (max-width: 768px) {
+  .hero {
+    height: auto;
+    padding: 60px 20px;
+  }
+
+  .products {
+    padding: 60px 20px;
+  }
+
+  .product-slider {
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 20px;
+  }
+
+  .form-section {
+    padding: 60px 20px;
+  }
+
+  .form-container {
+    padding: 0;
+  }
+}
+
+@media (max-width: 480px) {
+  .hero h1 {
+    font-size: 36px;
+  }
+
+  .hero p {
+    font-size: 16px;
+  }
+
+  .section-title {
+    font-size: 28px;
+  }
+
+  .product-slider {
+    grid-template-columns: 1fr;
+  }
+
+  .cta-primary, .submit-btn {
+    font-size: 16px;
+    padding: 14px 30px;
+  }
+}
+</style>
+</head>
+<body>
+
+<!-- HERO SECTION -->
+<section class="hero">
+  <div class="hero-content">
+    <h1>BHARAT COMPUTER</h1>
+    <p>Premium Tech Gear for the Digital Age</p>
+    <button class="cta-primary" onclick="scrollToProducts()">Explore Catalog</button>
+  </div>
+</section>
+
+<!-- PRODUCTS SECTION -->
+<section class="products" id="products">
+  <div class="section-header">
+    <div class="section-label">Our Collection</div>
+    <h2 class="section-title">Premium Products</h2>
+  </div>
+  <div class="product-slider">
+    <div class="product">
+      <img src="https://i.ibb.co/YFwSnwhP/156-mac-mini-2018.webp" alt="Mac Mini">
+      <p>Mac Mini</p>
+      <div class="product-price">Compact Power</div>
+    </div>
+    <div class="product">
+      <img src="https://i.ibb.co/W4R0jz6W/61-0-W3-MZg-L-SL1500.webp" alt="Keyboard">
+      <p>Keyboard</p>
+      <div class="product-price">Precision & Comfort</div>
+    </div>
+    <div class="product">
+      <img src="https://i.ibb.co/fdRTwF2b/81w-EGCnsc-BL-SL1500.webp" alt="Laptop">
+      <p>Laptop</p>
+      <div class="product-price">Portable Performance</div>
+    </div>
+    <div class="product">
+      <img src="https://i.ibb.co/NdD5k4FV/GLO-O3-WL-WHT-Web-Gallery-Front-2x-674bcb8a-fe06-4cc4-8f2b-d1e791640eed.webp" alt="PC Case">
+      <p>PC Case</p>
+      <div class="product-price">Stylish Protection</div>
+    </div>
+    <div class="product">
+      <img src="https://i.ibb.co/ds5JQ3QL/Mini-Mechanical-Single-Handed-LED-Folding-USB-Gaming-Keyboard-Computer-PRO-Mouse-Combos-Backlit-Keyb.avif" alt="Combo Set">
+      <p>Combo Set</p>
+      <div class="product-price">Complete Bundle</div>
+    </div>
+    <div class="product">
+      <img src="https://i.ibb.co/PZF0GPvh/0-core-i5-650-500-4-15inc-entwino-original-imahkg5cdqmkwhhh.webp" alt="Desktop">
+      <p>Desktop</p>
+      <div class="product-price">Raw Power</div>
+    </div>
+    <div class="product">
+      <img src="https://i.ibb.co/FkChLprJ/dell-inspiron-5420-all-in-one-desktop-core-i5-13-th-gen-8gb-512-ssd-23-8-fhd-black-computer-accessor.web" alt="All-in-One PC">
+      <p>All-in-One PC</p>
+      <div class="product-price">Space-Saving Solution</div>
+    </div>
+    <div class="product">
+      <img src="https://i.ibb.co/S4KPMxRg/61ngo-Pg-SEUL.jpg" alt="Gaming Keyboard">
+      <p>Gaming Keyboard</p>
+      <div class="product-price">Pro-Grade Gaming</div>
+    </div>
+    <div class="product">
+      <img src="https://i.ibb.co/5gGfK0Hs/81pw9l3px-LL-AC-UF1000-1000-QL80.jpg" alt="Monitor">
+      <p>Monitor</p>
+      <div class="product-price">Crystal Clear Display</div>
+    </div>
+    <div class="product">
+      <img src="https://i.ibb.co/kpGcs04/TR8y8oowio-U7-DTi-YKz-Uyna-1200-80.jpg" alt="Accessory">
+      <p>Premium Accessory</p>
+      <div class="product-price">Enhanced Experience</div>
+    </div>
+  </div>
+</section>
+
+<!-- ORDER FORM SECTION -->
+<section class="form-section">
+  <div class="form-container">
+    <h2 class="form-title">Place Your Order</h2>
+    <p class="form-description">Choose your next tech upgrade. We'll handle the rest.</p>
+    <form action="https://formspree.io/f/YOUR_FORMSPREE_ID" method="POST">
+      <div class="form-group">
+        <label for="name">Your Name</label>
+        <input type="text" name="name" placeholder="John Doe" required>
+      </div>
+      <div class="form-group">
+        <label for="email">Email Address</label>
+        <input type="email" name="email" placeholder="you@example.com" required>
+      </div>
+      <div class="form-group">
+        <label for="phone">Phone Number</label>
+        <input type="tel" name="phone" placeholder="+91 98765 43210" required>
+      </div>
+      <div class="form-group">
+        <label for="message">Product Details</label>
+        <textarea name="message" placeholder="Tell us which product you're interested in..."></textarea>
+      </div>
+      <button type="submit" class="submit-btn">Submit Order</button>
+    </form>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <p>📧 Contact: <a href="mailto:bharatrautray14@gmail.com">bharatrautray14@gmail.com</a></p>
+  <p style="margin-top: 10px; font-size: 12px;">© 2024 Bharat Computer. All rights reserved.</p>
+</footer>
+
+<script>
+function scrollToProducts() {
+  document.getElementById("products").scrollIntoView({ behavior: "smooth" });
+}
+
+// IMPORTANT: Replace 'YOUR_FORMSPREE_ID' with your actual Formspree ID
+// Steps to setup Formspree:
+// 1. Go to https://formspree.io/
+// 2. Sign up with your email
+// 3. Create a new form project
+// 4. Copy your Form ID (e.g., f/xxxxx)
+// 5. Replace 'YOUR_FORMSPREE_ID' in the form action above with your ID
+// Example: action="https://formspree.io/f/mbjexyzz"
+</script>
+
+</body>
+</html>
